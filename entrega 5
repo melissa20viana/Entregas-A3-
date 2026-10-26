@@ -1,0 +1,873 @@
+Hands on – entrega 5 
+
+Nome: Melissa Naielly Alves Rocha Viana
+RA: 42620396
+
+
+1-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int numero = sc.nextInt();
+        int maior = 0;
+        int menor = 0;
+        boolean primeiro = true;
+ 
+        while (numero != 0) {
+            if (primeiro) {
+                maior = numero;
+                menor = numero;
+                primeiro = false;
+            } else {
+                if (numero > maior) {
+                    maior = numero;
+                }
+                if (numero < menor) {
+                    menor = numero;
+                }
+            }
+            numero = sc.nextInt();
+        }
+ 
+        if (primeiro) {
+            System.out.println("Nenhum numero foi informado.");
+        } else {
+            System.out.println("Maior = " + maior);
+            System.out.println("Menor = " + menor);
+        }
+ 
+        
+    }
+}
+2-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int positivos = 0;
+        int negativos = 0;
+        int zeros = 0;
+ 
+        for (int i = 1; i <= 10; i++) {
+            int numero = sc.nextInt();
+ 
+            if (numero > 0) {
+                positivos++;
+            } else if (numero < 0) {
+                negativos++;
+            } else {
+                zeros++;
+            }
+        }
+ 
+        System.out.println("Positivos = " + positivos);
+        System.out.println("Negativos = " + negativos);
+        System.out.println("Zeros = " + zeros);
+        
+    }
+}
+3-
+Soma todos os inteiros de 1 até o valor N informado.
+Código Java:
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int soma = 0;
+ 
+        for (int i = 1; i <= n; i++) {
+            soma = soma + i;
+        }
+ 
+        System.out.println("Soma = " + soma);
+        
+    }
+}
+4-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int soma = 0;
+ 
+        for (int i = n; i >= 1; i--) {
+            System.out.print(i + " ");
+            soma = soma + i;
+        }
+ 
+        System.out.println();
+        System.out.println("Soma = " + soma);
+        
+    }
+}
+5-
+public class Main {
+    public static void main(String[] args) {
+        int fatorial = 1;
+ 
+        for (int n = 1; n <= 10; n++) {
+            fatorial = fatorial * n;
+            System.out.println(n + "! = " + fatorial);
+        }
+    }
+}
+6-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+ 
+        double e = 1.0;
+        double fatorial = 1.0;
+ 
+        for (int i = 1; i <= n; i++) {
+            fatorial = fatorial * i;
+            e = e + 1.0 / fatorial;
+        }
+ 
+        System.out.println("E = " + e);
+        
+    }
+}
+7-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        double salario = sc.nextDouble();
+        double somaSalarios = 0;
+        double maiorSalario = 0;
+        int somaFilhos = 0;
+        int pessoas = 0;
+        int ate100 = 0;
+ 
+        while (salario >= 0) {
+            int filhos = sc.nextInt();
+ 
+            somaSalarios = somaSalarios + salario;
+            somaFilhos = somaFilhos + filhos;
+            pessoas++;
+ 
+            if (pessoas == 1 || salario > maiorSalario) {
+                maiorSalario = salario;
+            }
+            if (salario <= 100) {
+                ate100++;
+            }
+ 
+            salario = sc.nextDouble();
+        }
+ 
+        if (pessoas > 0) {
+            System.out.println("Media salarial = " + (somaSalarios / pessoas));
+            System.out.println("Media de filhos = " + ((double) somaFilhos / pessoas));
+            System.out.println("Maior salario = " + maiorSalario);
+            System.out.println("Percentual ate R$ 100 = " + (ate100 * 100.0 / pessoas) + "%");
+        } else {
+            System.out.println("Nenhum habitante foi informado.");
+        }
+ 
+        
+    }
+}
+8-
+public class Main {
+    public static void main(String[] args) {
+        int chico = 150;
+        int ze = 110;
+        int anos = 0;
+ 
+        while (ze <= chico) {
+            chico = chico + 2;
+            ze = ze + 3;
+            anos++;
+        }
+ 
+        System.out.println("Anos = " + anos);
+        System.out.println("Altura final de Chico = " + (chico / 100.0) + " m");
+        System.out.println("Altura final de Ze = " + (ze / 100.0) + " m");
+    }
+}
+9-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+        int nulos = 0, brancos = 0;
+ 
+        int voto = sc.nextInt();
+ 
+        while (voto != 0) {
+            switch (voto) {
+                case 1: c1++; break;
+                case 2: c2++; break;
+                case 3: c3++; break;
+                case 4: c4++; break;
+                case 5: nulos++; break;
+                case 6: brancos++; break;
+                default:
+                    System.out.println("Codigo de voto invalido.");
+            }
+ 
+            voto = sc.nextInt();
+        }
+ 
+        System.out.println("Candidato 1 = " + c1);
+        System.out.println("Candidato 2 = " + c2);
+        System.out.println("Candidato 3 = " + c3);
+        System.out.println("Candidato 4 = " + c4);
+        System.out.println("Votos nulos = " + nulos);
+        System.out.println("Votos em branco = " + brancos);
+        
+    }
+}
+10-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int n = sc.nextInt();
+        int a1 = sc.nextInt();
+        int r = sc.nextInt();
+ 
+        int termo = a1;
+        int soma = 0;
+ 
+        for (int i = 1; i <= n; i++) {
+            System.out.print(termo + " ");
+            soma = soma + termo;
+            termo = termo + r;
+        }
+ 
+        System.out.println();
+        System.out.println("Soma = " + soma);
+        
+    }
+}
+11-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        for (int i = 1; i <= 20; i++) {
+            int n = sc.nextInt();
+ 
+            System.out.println("Tabuada do " + n + ":");
+            for (int j = 1; j <= n; j++) {
+                System.out.println(j + " x " + n + " = " + (j * n));
+            }
+        }
+ 
+        
+    }
+}
+12-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int idade = sc.nextInt();
+        int maiorIdade = 0;
+        int mulheres = 0;
+        boolean primeiraPessoa = true;
+ 
+        while (idade != -1) {
+            String sexo = sc.next();
+            String olhos = sc.next();
+            String cabelos = sc.next();
+ 
+            if (primeiraPessoa || idade > maiorIdade) {
+                maiorIdade = idade;
+                primeiraPessoa = false;
+            }
+ 
+            if (sexo.equalsIgnoreCase("F")
+                    && idade >= 18 && idade <= 35
+                    && olhos.equalsIgnoreCase("verdes")
+                    && cabelos.equalsIgnoreCase("louros")) {
+                mulheres++;
+            }
+ 
+            idade = sc.nextInt();
+        }
+ 
+        if (primeiraPessoa) {
+            System.out.println("Nenhuma pessoa foi informada.");
+        } else {
+            System.out.println("Maior idade = " + maiorIdade);
+            System.out.println("Mulheres com as caracteristicas = " + mulheres);
+        }
+ 
+        
+    }
+}
+13-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int codigo = sc.nextInt();
+        int quantidade = 0;
+        double somaAntes = 0;
+        double somaDepois = 0;
+ 
+        while (codigo >= 0) {
+            double preco = sc.nextDouble();
+            double novoPreco = preco * 1.20;
+ 
+            System.out.println("Codigo = " + codigo);
+            System.out.println("Novo preco = R$ " + novoPreco);
+ 
+            somaAntes = somaAntes + preco;
+            somaDepois = somaDepois + novoPreco;
+            quantidade++;
+ 
+            codigo = sc.nextInt();
+        }
+ 
+        if (quantidade > 0) {
+            System.out.println("Media antes = R$ " + (somaAntes / quantidade));
+            System.out.println("Media depois = R$ " + (somaDepois / quantidade));
+        } else {
+            System.out.println("Nenhum produto informado.");
+        }
+ 
+        
+    }
+}
+14-
+public class Main {
+    public static void main(String[] args) {
+        for (int i = 1000; i <= 1999; i++) {
+            if (i % 11 == 5) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+15-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double soma = 0;
+ 
+        for (int i = 1; i <= n; i++) {
+            if (i > 1) {
+                System.out.print(" + ");
+            }
+            System.out.print("1/" + i);
+            soma = soma + 1.0 / i;
+        }
+ 
+        System.out.println();
+        System.out.printf("S = %.2f%n", soma);
+        
+    }
+}
+16-
+public class Main {
+    public static void main(String[] args) {
+        int encontrados = 0;
+        int numero = 2;
+ 
+        while (encontrados < 5) {
+            int soma = 0;
+ 
+            for (int divisor = 1; divisor < numero; divisor++) {
+                if (numero % divisor == 0) {
+                    soma = soma + divisor;
+                }
+            }
+ 
+            if (soma == numero) {
+                System.out.println(numero);
+                encontrados++;
+            }
+ 
+            numero++;
+        }
+    }
+}
+
+17-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int maiorAcidentes = -1;
+        int menorAcidentes = Integer.MAX_VALUE;
+        int codigoMaior = 0;
+        int codigoMenor = 0;
+        long somaVeiculos = 0;
+ 
+        for (int i = 1; i <= 200; i++) {
+            int codigo = sc.nextInt();
+            String estado = sc.next();
+            int veiculos = sc.nextInt();
+            int acidentes = sc.nextInt();
+ 
+            somaVeiculos = somaVeiculos + veiculos;
+ 
+            if (acidentes > maiorAcidentes) {
+                maiorAcidentes = acidentes;
+                codigoMaior = codigo;
+            }
+ 
+            if (acidentes < menorAcidentes) {
+                menorAcidentes = acidentes;
+                codigoMenor = codigo;
+            }
+        }
+ 
+        System.out.println("Maior numero de acidentes = " + maiorAcidentes);
+        System.out.println("Codigo da cidade = " + codigoMaior);
+        System.out.println("Menor numero de acidentes = " + menorAcidentes);
+        System.out.println("Codigo da cidade = " + codigoMenor);
+        System.out.println("Media de veiculos = " + (somaVeiculos / 200.0));
+ 
+        
+    }
+}
+18-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        for (int i = 1; i <= 75; i++) {
+            int matricula = sc.nextInt();
+            double nota = sc.nextDouble();
+            String conceito;
+ 
+            if (nota > 9) {
+                conceito = "A";
+            } else if (nota >= 7) {
+                conceito = "B";
+            } else if (nota >= 5) {
+                conceito = "C";
+            } else {
+                conceito = "D";
+            }
+ 
+            System.out.println("Matricula: " + matricula);
+            System.out.println("Nota final: " + nota);
+            System.out.println("Conceito: " + conceito);
+            System.out.println();
+        }
+ 
+        
+    }
+}
+19-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] faixas = new int[5];
+ 
+        for (int i = 1; i <= 15; i++) {
+            int idade = sc.nextInt();
+ 
+            if (idade <= 15) {
+                faixas[0]++;
+            } else if (idade <= 30) {
+                faixas[1]++;
+            } else if (idade <= 45) {
+                faixas[2]++;
+            } else if (idade <= 60) {
+                faixas[3]++;
+            } else {
+                faixas[4]++;
+            }
+        }
+ 
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Faixa " + (i + 1) + " = " + faixas[i]);
+        }
+ 
+        System.out.println("Percentual da primeira faixa = " +
+                (faixas[0] * 100.0 / 15) + "%");
+        System.out.println("Percentual da ultima faixa = " +
+                (faixas[4] * 100.0 / 15) + "%");
+ 
+        
+    }
+}
+20-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double x = sc.nextDouble();
+ 
+        double soma = 0;
+        int denominador = 1;
+        int direcao = 1;
+ 
+        for (int i = 1; i <= n; i++) {
+            int expoente = i + 1;
+            double potencia = Math.pow(x, expoente);
+            double fatorial = 1;
+ 
+            for (int j = 1; j <= denominador; j++) {
+                fatorial = fatorial * j;
+            }
+ 
+            double termo = potencia / fatorial;
+ 
+            if (i % 2 == 1) {
+                termo = -termo;
+            }
+ 
+            soma = soma + termo;
+            System.out.println("Termo " + i + " = " + termo);
+ 
+            denominador = denominador + direcao;
+            if (denominador == 4) {
+                direcao = -1;
+            } else if (denominador == 1) {
+                direcao = 1;
+            }
+        }
+ 
+        System.out.println("S = " + soma);
+        
+    }
+}
+21-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double salarioMinimo = 1621.00;
+ 
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Codigo do funcionario:");
+            int codigo = sc.nextInt();
+ 
+            System.out.println("Horas trabalhadas:");
+            double horas = sc.nextDouble();
+ 
+            String turno;
+            do {
+                System.out.println("Turno (M, V ou N):");
+                turno = sc.next().toUpperCase();
+            } while (!turno.equals("M") && !turno.equals("V")
+                    && !turno.equals("N"));
+ 
+            String categoria;
+            do {
+                System.out.println("Categoria (O ou G):");
+                categoria = sc.next().toUpperCase();
+            } while (!categoria.equals("O") && !categoria.equals("G"));
+ 
+            double percentualHora;
+ 
+            if (categoria.equals("G") && turno.equals("N")) {
+                percentualHora = 0.18;
+            } else if (categoria.equals("G")) {
+                percentualHora = 0.15;
+            } else if (turno.equals("N")) {
+                percentualHora = 0.13;
+            } else {
+                percentualHora = 0.10;
+            }
+ 
+            double valorHora = salarioMinimo * percentualHora;
+            double salarioInicial = horas * valorHora;
+            double percentualAuxilio;
+ 
+            if (salarioInicial <= 1080) {
+                percentualAuxilio = 0.20;
+            } else if (salarioInicial <= 2160) {
+                percentualAuxilio = 0.15;
+            } else {
+                percentualAuxilio = 0.05;
+            }
+ 
+            double auxilio = salarioInicial * percentualAuxilio;
+            double salarioFinal = salarioInicial + auxilio;
+ 
+            System.out.println("Codigo: " + codigo);
+            System.out.println("Horas trabalhadas: " + horas);
+            System.out.println("Valor da hora: R$ " + valorHora);
+            System.out.println("Salario inicial: R$ " + salarioInicial);
+            System.out.println("Auxilio-alimentacao: R$ " + auxilio);
+            System.out.println("Salario final: R$ " + salarioFinal);
+            System.out.println("-------------------------");
+        }
+ 
+       
+    }
+}
+22-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+ 
+        int primeiro = 0;
+        int segundo = 1;
+ 
+        for (int i = 1; i <= n; i++) {
+            System.out.print(primeiro + " ");
+ 
+            int proximo = primeiro + segundo;
+            primeiro = segundo;
+            segundo = proximo;
+        }
+ 
+        
+    }
+}
+23-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double salarioMinimo = 1621.00;
+        double totalFolha = 0;
+        int totalPecas = 0;
+        int pecasHomens = 0, homens = 0;
+        int pecasMulheres = 0, mulheres = 0;
+        double maiorSalario = -1;
+        int codigoMaiorSalario = 0;
+ 
+        for (int i = 1; i <= 15; i++) {
+            int codigo = sc.nextInt();
+            int pecas = sc.nextInt();
+            String sexo = sc.next().toUpperCase();
+ 
+            double salario;
+            if (pecas <= 30) {
+                salario = salarioMinimo;
+            } else if (pecas <= 50) {
+                salario = salarioMinimo +
+                        (pecas - 30) * salarioMinimo * 0.03;
+            } else {
+                salario = salarioMinimo +
+                        (pecas - 30) * salarioMinimo * 0.05;
+            }
+ 
+            System.out.println("Operario: " + codigo);
+            System.out.println("Salario: R$ " + salario);
+ 
+            totalFolha = totalFolha + salario;
+            totalPecas = totalPecas + pecas;
+ 
+            if (sexo.equals("M")) {
+                pecasHomens = pecasHomens + pecas;
+                homens++;
+            } else if (sexo.equals("F")) {
+                pecasMulheres = pecasMulheres + pecas;
+                mulheres++;
+            }
+ 
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+                codigoMaiorSalario = codigo;
+            }
+        }
+ 
+        System.out.println("Total da folha = R$ " + totalFolha);
+        System.out.println("Total de pecas = " + totalPecas);
+ 
+        if (homens > 0) {
+            System.out.println("Media de pecas dos homens = " +
+                    (pecasHomens / (double) homens));
+        }
+        if (mulheres > 0) {
+            System.out.println("Media de pecas das mulheres = " +
+                    (pecasMulheres / (double) mulheres));
+        }
+ 
+        System.out.println("Operario com maior salario = " + codigoMaiorSalario);
+       
+    }
+}
+24-
+
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int nascimentos = sc.nextInt();
+        int femininas = 0;
+        int masculinas = 0;
+        int ate24Meses = 0;
+ 
+        for (int i = 1; i <= nascimentos; i++) {
+            String sexo = sc.next().toUpperCase();
+            int meses = sc.nextInt();
+ 
+            if (sexo.equals("F")) {
+                femininas++;
+            } else if (sexo.equals("M")) {
+                masculinas++;
+            }
+ 
+            if (meses <= 24) {
+                ate24Meses++;
+            }
+        }
+ 
+        if (nascimentos > 0) {
+            System.out.println("Percentual feminino = " +
+                    (femininas * 100.0 / nascimentos) + "%");
+            System.out.println("Percentual masculino = " +
+                    (masculinas * 100.0 / nascimentos) + "%");
+            System.out.println("Percentual com ate 24 meses = " +
+                    (ate24Meses * 100.0 / nascimentos) + "%");
+        }
+ 
+        
+    }
+}
+25-
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        double somaAdicionais = 0;
+        double totalImpostos = 0;
+        double maiorPreco = -1;
+        double menorPreco = Double.MAX_VALUE;
+        int baratos = 0, normais = 0, caros = 0;
+ 
+        for (int i = 1; i <= 12; i++) {
+            double preco = sc.nextDouble();
+ 
+            String refrigeracao;
+            do {
+                refrigeracao = sc.next().toUpperCase();
+            } while (!refrigeracao.equals("S") && !refrigeracao.equals("N"));
+ 
+            String categoria;
+            do {
+                categoria = sc.next().toUpperCase();
+            } while (!categoria.equals("A") && !categoria.equals("L")
+                    && !categoria.equals("V"));
+ 
+            double custo;
+ 
+            if (preco <= 20) {
+                if (categoria.equals("A")) {
+                    custo = 2;
+                } else if (categoria.equals("L")) {
+                    custo = 3;
+                } else {
+                    custo = 4;
+                }
+            } else if (preco <= 50) {
+                if (refrigeracao.equals("S")) {
+                    custo = 6;
+                } else {
+                    custo = 0;
+                }
+            } else {
+                if (refrigeracao.equals("S")) {
+                    if (categoria.equals("A")) {
+                        custo = 5;
+                    } else if (categoria.equals("L")) {
+                        custo = 2;
+                    } else {
+                        custo = 4;
+                    }
+                } else if (categoria.equals("L")) {
+                    custo = 1;
+                } else {
+                    custo = 0;
+                }
+            }
+ 
+            double imposto;
+            if (categoria.equals("A") && refrigeracao.equals("S")) {
+                imposto = preco * 0.04;
+            } else {
+                imposto = preco * 0.02;
+            }
+ 
+            double precoFinal = preco + custo + imposto;
+            double adicionais = custo + imposto;
+            somaAdicionais = somaAdicionais + adicionais;
+            totalImpostos = totalImpostos + imposto;
+ 
+            if (precoFinal > maiorPreco) {
+                maiorPreco = precoFinal;
+            }
+            if (precoFinal < menorPreco) {
+                menorPreco = precoFinal;
+            }
+ 
+            String classificacao;
+            if (precoFinal <= 20) {
+                classificacao = "Barato";
+                baratos++;
+            } else if (precoFinal <= 100) {
+                classificacao = "Normal";
+                normais++;
+            } else {
+                classificacao = "Caro";
+                caros++;
+            }
+ 
+            System.out.println("Preco unitario = R$ " + preco);
+            System.out.println("Custo de estocagem = R$ " + custo);
+            System.out.println("Imposto = R$ " + imposto);
+            System.out.println("Preco final = R$ " + precoFinal);
+            System.out.println("Classificacao = " + classificacao);
+            System.out.println("-------------------------");
+        }
+ 
+        System.out.println("Media dos valores adicionais = R$ " +
+                (somaAdicionais / 12));
+        System.out.println("Maior preco final = R$ " + maiorPreco);
+        System.out.println("Menor preco final = R$ " + menorPreco);
+        System.out.println("Total de impostos = R$ " + totalImpostos);
+        System.out.println("Produtos baratos = " + baratos);
+        System.out.println("Produtos normais = " + normais);
+        System.out.println("Produtos caros = " + caros);
+ 
+        
+    }
+}
+
